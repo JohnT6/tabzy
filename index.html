@@ -18,9 +18,11 @@
         <div id="tab-3" class="tabs--content">Tab Content 3</div>
         <script src="./src/tabzy.js"></script>
         <script>
-            const tabs = new Tabzy("#tabs");
+            const tabs = new Tabzy("#tabs", {
+                remember: true,
+            });
             // console.log(tabs);
-            tabs.switch("#tab-3");
+            // tabs.switch("#tab-3");
             // tabs.destroy();
         </script>
     </body>
