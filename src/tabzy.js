@@ -31,9 +31,12 @@ function Tabzy(selector, options = {}) {
     this.opt = Object.assign(
         {
             remember: false,
+            onChange: null,
         },
         options,
     );
+
+    this.paramKey = selector.replace(/[^a-zA-Z0-9]/g, "");
 
     this._originalHTML = this.container.innerHTML;
 
@@ -42,12 +45,14 @@ function Tabzy(selector, options = {}) {
 
 Tabzy.prototype._init = function () {
     const params = new URLSearchParams(location.search);
-    const tabSelector = params.get("tab");
+    const tabSelector = params.get(this.paramKey);
     const tab =
         (this.opt.remember &&
             tabSelector &&
             this.tabs.find(
-                (tab) => tab.getAttribute("href") === tabSelector,
+                (tab) =>
+                    tab.getAttribute("href").replace(/[^a-zA-Z0-9]/g, "") ===
+                    tabSelector,
             )) ||
         this.tabs[0];
 
@@ -78,11 +83,19 @@ Tabzy.prototype._activateTab = function (tab) {
     panelActive.hidden = false;
 
     if (this.opt.remember) {
-        history.replaceState(
-            null,
-            null,
-            `?tab=${encodeURIComponent(tab.getAttribute("href"))}`,
-        );
+        const params = new URLSearchParams(location.search);
+        const paramsValue = tab
+            .getAttribute("href")
+            .replace(/[^a-zA-Z0-9]/g, "");
+        params.set(this.paramKey, paramsValue);
+        history.replaceState(null, null, `?${params}`);
+    }
+
+    if (typeof this.opt.onChange === "function") {
+        this.opt.onChange({
+            tab,
+            panel: panelActive,
+        });
     }
 };
 

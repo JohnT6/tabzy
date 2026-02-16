@@ -41,9 +41,10 @@
                 remember: true,
             });
 
-            // const tabs2 = new Tabzy("#tabs2", {
-            //     remember: true,
-            // });
+            const tabs2 = new Tabzy("#tabs2", {
+                remember: true,
+                onChange: (data) => console.log(data),
+            });
             // console.log(tabs);
             // tabs.switch("#tab-3");
             // tabs.destroy();
