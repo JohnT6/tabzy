@@ -1,53 +1,320 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
     <head>
         <meta charset="UTF-8" />
+        <title>Tabzy.js: Thư Viện Tab JavaScript Thuần Siêu Nhẹ</title>
+        <meta
+            name="description"
+            content="Tabzy.js là một thư viện tab đơn giản và siêu nhẹ được viết bằng JavaScript thuần. Nó được thiết kế cho trải nghiệm người dùng tuyệt vời (không phụ thuộc, tùy chỉnh hoàn toàn, hỗ trợ lưu trạng thái trên URL)."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Tabzy</title>
-        <link rel="stylesheet" href="./assets/style.css" />
+        <link
+            rel="stylesheet"
+            href="./assets/highlight/styles.css"
+            media="all"
+        />
+        <link rel="stylesheet" href="./assets/styles.css" media="all" />
         <link rel="stylesheet" href="./src/tabzy.css" />
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     </head>
     <body>
-        <ul id="tabs1" class="tabs">
-            <li><a href="#tab-1" class="tabs--item">tab 1</a></li>
-            <li><a href="#tab-2" class="tabs--item">tab 2</a></li>
-            <li><a href="#tab-3" class="tabs--item">tab 3</a></li>
-        </ul>
-        <div id="tab-1" class="tabs--content">Tab Content 1</div>
-        <div id="tab-2" class="tabs--content">Tab Content 2</div>
-        <div id="tab-3" class="tabs--content">Tab Content 3</div>
+        <header class="header">
+            <div class="container">
+                <h1 class="header__title">Tabzy.js</h1>
+                <div class="header__tagline">
+                    Một thư viện tab đơn giản và siêu nhẹ được xây dựng bằng
+                    JavaScript thuần.
+                </div>
+                <a
+                    href="https://github.com/johnT6/tabzy"
+                    class="header__github"
+                    target="_blank"
+                    ><img src="./assets/github.svg" alt="Xem trên GitHub"
+                /></a>
+            </div>
+        </header>
+        <div class="container content">
+            <h2 data-bullet="1" class="title" id="try-it-out">Dùng Thử</h2>
+            <p>
+                Tabzy là một <strong>thư viện tab</strong> siêu nhẹ được xây
+                dựng bằng JavaScript thuần. (<a
+                    href="https://github.com/johnT6/tabzy"
+                    >Mã nguồn có sẵn trên GitHub</a
+                >)
+            </p>
 
-        <ul id="tabs2" class="tabs">
-            <!-- Tabs -->
-            <li>
-                <a href="#tabA" class="tabs--item">Tab A</a>
-            </li>
-            <li>
-                <a href="#tabB" class="tabs--item">Tab B</a>
-            </li>
-            <li>
-                <a href="#tabC" class="tabs--item">Tab C</a>
-            </li>
-        </ul>
+            <ul>
+                <li>Không phụ thuộc (No dependencies)</li>
+                <li>Tùy chỉnh hoàn toàn bằng CSS</li>
+                <li>Hỗ trợ lưu trạng thái trên URL</li>
+                <li>API đơn giản và trực quan</li>
+                <li>Siêu nhẹ và được tối ưu hóa</li>
+            </ul>
 
-        <!-- Panels -->
-        <div id="tabA" class="tabs--content">TabA content</div>
-        <div id="tabB" class="tabs--content">TabB content</div>
-        <div id="tabC" class="tabs--content">TabC content</div>
+            <p>Dưới đây là một số ví dụ về cách sử dụng Tabzy:</p>
 
+            <p><strong>1. Demo Tab Cơ Bản</strong></p>
+
+            <div class="sample-1">
+                <ul id="fancy-tabs" class="tabzy-tabs">
+                    <li><a href="#fancy1">Tab 1</a></li>
+                    <li><a href="#fancy2">Tab 2</a></li>
+                    <li><a href="#fancy3">Tab 3</a></li>
+                    <li><a href="#fancy4">Tab 4</a></li>
+                </ul>
+                <div id="fancy1" class="tabzy-panel">
+                    Chào mừng đến với Tab 1! Đây là tab đầu tiên.
+                </div>
+                <div id="fancy2" class="tabzy-panel" hidden>
+                    Đây là Tab 2 với một số nội dung thú vị.
+                </div>
+                <div id="fancy3" class="tabzy-panel" hidden>
+                    Tab 3 ở đây để bạn khám phá.
+                </div>
+                <div id="fancy4" class="tabzy-panel" hidden>
+                    Tab 4 có một số thông tin độc đáo.
+                </div>
+            </div>
+
+            <p><strong>2. Demo Tab Lưu Trạng Thái (Persistent)</strong></p>
+
+            <div class="sample-2">
+                <ul id="persistent-tabs" class="tabzy-tabs">
+                    <li><a href="#persist1">Tin tức</a></li>
+                    <li><a href="#persist2">Thể thao</a></li>
+                    <li><a href="#persist3">Công nghệ</a></li>
+                    <li><a href="#persist4">Đời sống</a></li>
+                </ul>
+                <div id="persist1" class="tabzy-panel">
+                    Cập nhật tin tức mới nhất từ khắp nơi trên thế giới.
+                </div>
+                <div id="persist2" class="tabzy-panel" hidden>
+                    Điểm tin và tỷ số thể thao hàng đầu.
+                </div>
+                <div id="persist3" class="tabzy-panel" hidden>
+                    Các xu hướng công nghệ mới nhất.
+                </div>
+                <div id="persist4" class="tabzy-panel" hidden>
+                    Mẹo cho một lối sống tốt hơn.
+                </div>
+            </div>
+
+            <p><strong>3. Demo Tab Trượt (Sliding Line)</strong></p>
+
+            <div class="sample-3">
+                <div class="tabzy-wrapper">
+                    <ul id="sliding-tabs" class="tabzy-tabs sliding">
+                        <li><a href="#slide1">Trang chủ</a></li>
+                        <li><a href="#slide2">Giới thiệu</a></li>
+                        <li><a href="#slide3">Dịch vụ</a></li>
+                        <li><a href="#slide4">Dự án</a></li>
+                    </ul>
+                    <div class="active-line"></div>
+                </div>
+                <div id="slide1" class="tabzy-panel">
+                    Chào mừng đến với tab Trang chủ!
+                </div>
+                <div id="slide2" class="tabzy-panel" hidden>
+                    Về chúng tôi và sứ mệnh của chúng tôi.
+                </div>
+                <div id="slide3" class="tabzy-panel" hidden>
+                    Chi tiết về các dịch vụ của chúng tôi.
+                </div>
+                <div id="slide4" class="tabzy-panel" hidden>
+                    Xem qua các dự án của chúng tôi.
+                </div>
+            </div>
+
+            <h2 data-bullet="2" class="title" id="installation">Cài Đặt</h2>
+            <table class="methods">
+                <thead>
+                    <tr>
+                        <th>Phương pháp</th>
+                        <th class="w60">Các bước</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Tải Trực Tiếp</td>
+                    <td>
+                        <a
+                            href="https://github.com/JohnT6/tabzy/archive/refs/heads/main.zip"
+                            title="Tải Tabzy"
+                        >
+                            Tải file ZIP
+                        </a>
+                        <p>
+                            Chỉ cần giải nén file ZIP và sử dụng các file
+                            <code>tabzy.min.js</code> và
+                            <code>tabzy.min.css</code> trong dự án của bạn.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                Tabzy cung cấp một file CSS nhỏ mà bạn có thể nhúng trực tiếp
+                thông qua link CDN. Điều này giúp dễ dàng tích hợp vào dự án của
+                bạn và tùy chỉnh khi cần thiết.
+            </p>
+
+            <p>Nhúng file JavaScript của Tabzy vào dự án của bạn:</p>
+
+            <pre
+                class="html"
+            ><code>&lt;script src=&quot;https://cdn.jsdelivr.net/gh/sondnpt00343/tabzy@v1.0.0/tabzy.min.js&quot;&gt;&lt;/script&gt;</code></pre>
+
+            <blockquote>
+                Bạn có thể sử dụng các phiên bản Tabzy đã được
+                <a
+                    href="https://github.com/JohnT6/tabzy/releases"
+                    target="_blank"
+                    >phát hành</a
+                >
+                tại đây.
+            </blockquote>
+
+            <h2 data-bullet="3" class="title" id="usage">Cách Sử Dụng</h2>
+            <p>Đây là cấu trúc HTML cơ bản bạn cần để thiết lập Tabzy:</p>
+
+            <pre class="html"><code>&lt;ul id=&quot;my-tabs&quot;&gt;
+    &lt;li&gt;&lt;a href=&quot;#panel1&quot;&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;#panel2&quot;&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div id=&quot;panel1&quot;&gt;Nội dung 1&lt;/div&gt;
+&lt;div id=&quot;panel2&quot;&gt;Nội dung 2&lt;/div&gt;</code></pre>
+
+            <p>Và đây là cách bạn có thể sử dụng nó với JavaScript:</p>
+
+            <pre class="javascript"><code>// Khởi tạo một instance tab mới
+const tabs = new Tabzy('#my-tabs', {
+    activeClassName: 'tabzy--active',
+    remember: true, // Giữ trạng thái tab đang hoạt động trên URL
+    onChange: function({ tab, panel }) {
+        console.log(`Đã chuyển sang ${tab.textContent}`);
+    }
+});
+
+// Chuyển sang một tab cụ thể
+tabs.switch('#panel2');
+
+// Hủy bỏ instance tab
+tabs.destroy();
+</code></pre>
+
+            <h2 data-bullet="4" class="title" id="options">Tùy Chọn</h2>
+            <table class="methods">
+                <thead>
+                    <tr>
+                        <th>Tùy chọn</th>
+                        <th>Kiểu</th>
+                        <th class="w60">Mô tả</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>activeClassName</td>
+                    <td>string</td>
+                    <td>
+                        Class CSS được áp dụng cho tab đang hoạt động (mặc định:
+                        <code>'tabzy--active'</code>)
+                    </td>
+                </tr>
+                <tr>
+                    <td>remember</td>
+                    <td>boolean</td>
+                    <td>
+                        Lưu trạng thái tab đang hoạt động trên URL (mặc định:
+                        <code>false</code>)
+                    </td>
+                </tr>
+                <tr>
+                    <td>onChange</td>
+                    <td>function</td>
+                    <td>
+                        Một hàm callback chạy mỗi khi tab đang hoạt động thay
+                        đổi. Nó nhận vào một object với hai thuộc tính:
+                        <code>tab</code> (phần tử DOM của tab mới được kích
+                        hoạt) và <code>panel</code> (phần tử DOM của panel nội
+                        dung tương ứng). Theo mặc định, nó được đặt là
+                        <code>null</code>, nghĩa là không có hành động nào được
+                        thực hiện trừ khi bạn định nghĩa một hàm.
+                    </td>
+                </tr>
+            </table>
+
+            <h2 data-bullet="5" class="title" id="api">API</h2>
+            <table class="methods">
+                <thead>
+                    <tr>
+                        <th>Phương thức</th>
+                        <th class="w60">Mô tả</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>switch(input)</td>
+                    <td>
+                        Chuyển sang một tab cụ thể dựa trên
+                        <code>input</code> được cung cấp. <code>input</code> có
+                        thể là: (1) một <strong>chuỗi</strong> đại diện cho
+                        thuộc tính <code>href</code> của tab (ví dụ:
+                        <code>'#panel2'</code>), hoặc (2) một
+                        <strong>phần tử DOM</strong> là một trong các link tab
+                        (ví dụ: một thẻ <code>&lt;a&gt;</code> từ danh sách
+                        tab).
+                    </td>
+                </tr>
+                <tr>
+                    <td>destroy()</td>
+                    <td>
+                        Loại bỏ tất cả chức năng của Tabzy, khôi phục lại HTML
+                        gốc và gỡ bỏ các sự kiện.
+                    </td>
+                </tr>
+            </table>
+
+            <footer class="footer">
+                <p>
+                    Đây là một dự án nhỏ được tạo ra để minh họa chức năng tab
+                    bằng JavaScript thuần.
+                </p>
+                <p>
+                    Tìm hiểu thêm tại
+                    <a
+                        href="https://fullstack.edu.vn/landing/javascript"
+                        target="_blank"
+                    >
+                        Hướng dẫn JavaScript</a
+                    >.
+                </p>
+            </footer>
+        </div>
+        <script src="./assets/highlight/highlight.js"></script>
         <script src="./src/tabzy.js"></script>
         <script>
-            const tabs = new Tabzy("#tabs1", {
+            // Highlight code
+            hljs.initHighlightingOnLoad();
+
+            // Tab samples
+
+            // Basic tabs
+            new Tabzy("#fancy-tabs");
+
+            // Persist tabs
+            new Tabzy("#persistent-tabs", {
                 remember: true,
             });
-            tabs.switch("#tab-3");
-            const tabs2 = new Tabzy("#tabs2", {
-                remember: true,
-                onChange: (data) => console.log(data),
+
+            // Sliding tabs
+            const tab3 = new Tabzy("#sliding-tabs", {
+                onChange: updateActiveLine,
             });
-            // console.log(tabs);
-            // tabs.switch("#tab-3");
-            // tabs.destroy();
+            function updateActiveLine() {
+                const activeTab = tab3.currentTab;
+                const tabLi = activeTab.closest("li");
+                const activeLine = tab3.container.nextElementSibling;
+
+                activeLine.style.width = `${tabLi.offsetWidth}px`;
+                activeLine.style.transform = `translateX(${tabLi.offsetLeft}px)`;
+            }
+            updateActiveLine();
         </script>
     </body>
 </html>
